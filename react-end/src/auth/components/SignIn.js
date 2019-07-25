@@ -26,7 +26,7 @@ class SignIn extends Component {
     signIn(this.state)
       .then(res => setUser(res.data.user))
       .then(() => alert(messages.signInSuccess, 'success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/maps/view'))
       .catch(error => {
         console.error(error)
         this.setState({ email: '', password: '' })
@@ -36,6 +36,8 @@ class SignIn extends Component {
 
   render () {
     const { email, password } = this.state
+
+
 
     return (
       <form className='auth-form' onSubmit={this.onSignIn}>

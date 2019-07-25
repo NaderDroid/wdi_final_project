@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-userSchema.virtual('examples', {
-  ref: 'Example',
+userSchema.virtual('mosques', {
+  ref: 'Mosque',
   localField: '_id',
   foreignField: 'owner'
 });

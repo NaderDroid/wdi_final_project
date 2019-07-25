@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 // require route files
-const exampleRoutes = require('./app/routes/example_routes')
+const mosqueRoutes = require('./app/routes/mosque_routes')
 const userRoutes = require('./app/routes/user_routes')
 
 // require error handling middleware
@@ -25,8 +25,8 @@ const requestLogger = require('./lib/request_logger')
 const tokenOrBearer = require('./lib/token_or_bearer')
 
 // Define Ports
-const reactPort = 7165
-const expressPort = 3000
+const reactPort = 7177
+const expressPort = 3003
 
 // establish database connection
 mongoose.Promise = global.Promise
@@ -51,10 +51,6 @@ app.use(tokenOrBearer)
 
 // register passport authentication middleware
 app.use(auth)
-
-// add `bodyParser` middleware which will parse JSON requests into
-// JS objects before they reach the route files.
-// The method `.use` sets up middleware for the Express application
 app.use(bodyParser.json())
 // this parses requests sent by `$.ajax`, which use a different content type
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -63,7 +59,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(requestLogger)
 
 // register route files
-app.use(exampleRoutes)
+app.use(mosqueRoutes)
 app.use(userRoutes)
 
 // register error handling middleware
