@@ -9,13 +9,14 @@ class UserPage extends Component {
    componentDidMount() {
         //console.log(this.state.user._id)
 
-        showUser(this.state.user)
+        //const res = showUser(this.state.user)
+
    }
 
     render() {
         return (
                 <div>
-                <h1>Welcome, Your name goes here</h1>
+                    <h1>Welcome, Your name goes here</h1>
                 </div>
         )
     }

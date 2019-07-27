@@ -2,5 +2,10 @@
     display: none;
 }
 img {
-    width: 100%;
+    width: 178px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 300px 0px 0px 250px;
+
 }

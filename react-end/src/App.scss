@@ -2,6 +2,14 @@ $success: #c7f282;
 $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
+html {
+  background: url(bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
 
 .flash-success,
 .flash-warning,
@@ -55,7 +63,7 @@ $charcoal: #ccc;
 }
 
 .card {
-  color : #3774a9 ;
+  color : #3774a5 ;
   width: 500px;
   top: 10px;
   left: 10px;

@@ -1,6 +1,10 @@
 process.env.TESTENV = true
 
+<<<<<<< HEAD
 let Example = require('../app/models/mosque.js')
+=======
+let Example = require('../app/models/example.js')
+>>>>>>> 73f46a9... first commit for my final project
 let User = require('../app/models/user')
 
 const crypto = require('crypto')

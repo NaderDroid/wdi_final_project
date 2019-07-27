@@ -55,30 +55,6 @@ export const changePassword = (passwords, user) => {
     }
   })
 }
-
-export const validateForm = (form) => {
-  if (form.mosque.name !== "" && form.mosque.city !== "" && form.mosque.desc !==""
-  && form.mosque.region !=="") {
-    return true
-  }
-  else {
-    return false
-  }
-}
-
-export const handleForm = (data , user) => {
-  axios ({
-    method : 'post',
-    url : apiUrl + '/mosques/add',
-    headers: {
-      'Authorization': `Bearer ${user.token}` // FOR EXPRESS
-    },
-    data : data
-  })
-      .then(res => console.log("successfully posted data" + res))
-      .catch(err=> console.log(err))
-}
-
 export const showUser = (user) => {
   axios ({
     method : 'get',
@@ -87,8 +63,7 @@ export const showUser = (user) => {
       'Authorization': `Bearer ${user.token}` // FOR EXPRESS
     },
   })
-      .then(res => console.log(res.data)
-  )
+      .then(res => console.log(res.data))
       .catch(err => console.log(err))
 }
 
@@ -97,8 +72,9 @@ export const showAll = () => {
     method : 'get',
     url : apiUrl + `/mosques`,
   })
-      .then(res => console.log(res.data)
-      )
+      .then(res => res.json())
+
       .catch(err => console.log(err))
 }
+
 

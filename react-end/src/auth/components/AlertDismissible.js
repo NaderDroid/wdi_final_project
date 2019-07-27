@@ -13,7 +13,7 @@ class AlertDismissible extends React.Component {
       const handleDismiss = () => this.setState({ show: false });
       if (this.state.show) {
         return (
-            <Alert key={this.props.index} dismissible variant={this.props.variant} onClose={handleDismiss}>
+            <Alert key={this.props.index1} dismissible variant={this.props.variant} onClose={handleDismiss}>
                 <Alert.Heading>
                     {this.props.message}
                 </Alert.Heading>
