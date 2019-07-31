@@ -35,8 +35,9 @@ router.get('/user_id/:id'  , (req , res , next) => {
 })
 router.get('/by_user/:id' , requireToken , (req , res , next) => {
     User.findById(req.params.id)
-        .then(user => Mosque.find({owner : user.id}))
-        .then(mosques => res.json({mosques : mosques}))
+        .then(user => Mosque.find({owner : user.id})
+            .then(mosques => res.json({mosques : mosques})))
+
 })
 
 // SHOW
