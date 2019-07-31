@@ -6,6 +6,7 @@ export const signUp = credentials => {
     method: 'POST',
     url: apiUrl + '/sign-up',
     data: {
+      userName : credentials.userName,
       credentials: {
         email: credentials.email,
         password: credentials.password,

@@ -10,5 +10,4 @@ const appJsx = (
     <App />
   </HashRouter>
 )
-
 ReactDOM.render(appJsx, document.getElementById('root'))

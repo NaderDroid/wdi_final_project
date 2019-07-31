@@ -2,7 +2,7 @@ import axios from "axios";
 import apiUrl from "./apiConfig";
 
 export const getAllMosques = () => {
-    console.log('Nader is refactoring')
+    console.log('Nader from the mosques function')
 
     return axios({
         method: 'get',
@@ -12,14 +12,16 @@ export const getAllMosques = () => {
         .catch(err => console.log(err))
 }
 export const getLocation = () => {
-    console.log('Nader returned location')
     return new Promise((resolve) => {
             navigator.geolocation.getCurrentPosition((pos) => {
                     resolve({
+                        zoom : 15,
                         lat: pos.coords.latitude,
                         lng: pos.coords.longitude,
                         approximate: false
                     });
+                    //console.log(pos)
+                    console.log('Nader returned location')
                 },
                 () => {
                     alert(' to fully leverage our website, please allow access to your location')
@@ -28,12 +30,15 @@ export const getLocation = () => {
 
                         .then(loc => {
                             return {
+                                zoom : 12,
                                 lat: loc.latitude,
                                 lng: loc.longitude,
                                 approximate: true
 
                             };
                         }))
+
+                    console.log('Nader failed to return location')
                 })
         }
     )
@@ -60,6 +65,20 @@ export const handleForm = (data , user) => {
     })
         .then(res => console.log("successfully posted data" + res))
         .catch(err=> console.log(err))
+}
+
+export const getByUser = (user) => {
+    console.log('Mosques for user')
+
+    return axios({
+        method: 'get',
+        url: apiUrl + `/by_user/${user._id}`,
+        headers: {
+            'Authorization': `Bearer ${user.token}` // FOR EXPRESS
+        }
+    })
+    //.then(res => res.data)
+        .catch(err => console.log(err))
 }
 
 

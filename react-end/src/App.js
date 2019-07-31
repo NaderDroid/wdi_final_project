@@ -7,8 +7,9 @@ import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
-import Map from './MapComponent'
+import Map from './MapInit'
 import UserPage from './UserPage'
+// import UserPage from './UserPage'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 
@@ -39,7 +40,7 @@ class App extends Component {
         {alerts.map((alert, index) => (
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
-        <main className="container">
+        <main>
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
@@ -52,14 +53,17 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path = '/user_page' component={Map} render={() => (
-              <UserPage user={user}/>
-          )}/>
+          {/*<AuthenticatedRoute user={user} path = '/user_page' component={Map} render={() => (*/}
+          {/*    <UserPage user={user}/>*/}
+          {/*)}/>*/}
           <AuthenticatedRoute user={user} path = '/map/add' render={() => (
               <Map user={user}/>
           )}/>
           <Route path = '/map/view' render ={() => (
               <Map/>
+          )}/>
+          <AuthenticatedRoute user={user} path = '/user_page' render={() => (
+              <UserPage user={user}/>
           )}/>
         </main>
       </React.Fragment>

@@ -26,7 +26,7 @@ class SignIn extends Component {
     signIn(this.state)
       .then(res => setUser(res.data.user))
       .then(() => alert(messages.signInSuccess, 'success'))
-      .then(() => history.push('/maps/view'))
+      .then(() => history.push('map/view'))
       .catch(error => {
         console.error(error)
         this.setState({ email: '', password: '' })
@@ -42,7 +42,7 @@ class SignIn extends Component {
     return (
       <form className='auth-form' onSubmit={this.onSignIn}>
         <h3>Sign In</h3>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email"></label>
         <input
           required
           type="email"
@@ -51,7 +51,7 @@ class SignIn extends Component {
           placeholder="Email"
           onChange={this.handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
         <input
           required
           name="password"

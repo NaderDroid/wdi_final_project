@@ -9,6 +9,7 @@ class SignUp extends Component {
     super()
 
     this.state = {
+      userName : '',
       email: '',
       password: '',
       passwordConfirmation: ''
@@ -37,13 +38,21 @@ class SignUp extends Component {
   }
 
   render () {
-    const { email, password, passwordConfirmation } = this.state
+    const { userName , email, password, passwordConfirmation } = this.state
 
     return (
       <form className='auth-form' onSubmit={this.onSignUp}>
         <h3>Sign Up</h3>
-
-        <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
+          <input
+              required
+              name="userName"
+              value={userName}
+              type="name"
+              placeholder="Full Name"
+              onChange={this.handleChange}
+          />
+        <label htmlFor="email"></label>
         <input
           required
           name="email"
@@ -52,7 +61,7 @@ class SignUp extends Component {
           placeholder="Email"
           onChange={this.handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
         <input
           required
           name="password"
@@ -61,7 +70,7 @@ class SignUp extends Component {
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <label htmlFor="passwordConfirmation">Confirm Password</label>
+        <label htmlFor="passwordConfirmation"></label>
         <input
           required
           name="passwordConfirmation"
